@@ -23,7 +23,7 @@
             onChangeHandler = e => {
                 console.log(e);
                 this.setState({
-                    [e.target.name] : e.target.value
+                    [e.target.name] : e.target.value   //name은 key이다! (state의 username,password를 불러올수 있다.)
                 })
             } 
 
@@ -52,7 +52,6 @@
                     </>
                 )   //이걸 backend 서버로 보내주는 로직을 짜면 보내지는것이다!!
             }
-
 
         }
         ReactDOM.createRoot(document.getElementById("root")).render(<LoginComponent/>);

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const {useState} = React;
+    
+    function CounterComponent(props) {  //props는 react안에 존재하는 속성이다!
+
+        const [initialCount, setInitialCount] = useState(props.initialCount);
+ 
+            return(
+                <>
+                    <h1>카운트</h1>
+                    <h3>{"현재 카운트: " + initialCount}</h3>
+                <div>
+                    <button onClick={()=>setInitialCount(initialCount+1)}>+1 증가</button>
+                    <button onClick={()=>setInitialCount(props.initialCount)}>초기화</button>
+
+                </div>
+
+                </>
+            )
+    }
+
+
+    function App() {
+        return (
+          <div>
+            <h1>Props와 useState 활용</h1>
+            <CounterComponent initialCount={10} />
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+    </script>
+</body>
+</html>

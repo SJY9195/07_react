@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const {useState} = React;
+
+        function OrderComponent() {
+            const [price, setPrice] = useState("");
+            const [quantity, setQuantity] = useState("");
+
+            const onChangePrice = e => {
+                setPrice(e.target.value);
+            }
+            const onChangeQuantity = e => {
+                setQuantity(e.target.value);
+            }
+            const onClickHandler = () => {
+              const sum = (`${price * quantity}`);
+            } 
+
+            return( 
+            <>
+                <label>상품 가격: </label>
+                <input type="text" name="price" placeholder="가격 입력"
+                value={price} onChange={onChangePrice}/>
+                <br/>
+                <label>상품 수량: </label>
+                <input type="text" name="quantity" placeholder="가격 입력"
+                value={quantity} onChange={onChangeQuantity}/>
+                <br/>
+                <button onClick={onClickHandler}>총합 계산</button>
+                <br/>
+                <h4>{"총합: " + sum + "원"}</h4>
+                </>
+            )
+        }
+
+
+        function App() {
+        return (
+          <div>
+            <h1>상품 주문 시스템</h1>
+            <OrderComponent  />
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+    </script>
+
+
+</body>
+</html>
