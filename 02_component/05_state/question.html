@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+  
+
+    <script type="text/babel">
+
+        const {useState} = React;
+
+        function Counter(){
+
+            
+            const [number, setNumber] = useState(0);
+           // 오답 const [message, setMessage] = useState("Number : " + number);
+            const [color, setColor] = useState("black");
+
+            // 이걸 쓰면 +1,-1이 된다 (오답) const onClickPlus = () => setMessage(number+1);
+           // 이걸 쓰면 +1,-1이 된다 (오답)  const onClickMinus = () => setMessage(number-1);
+            return (
+                <>
+                    <h1 style={{color}}>{"Number : " + number}</h1> {/*h1태그는 문자크기 태그!*/}
+                    {/*<h1 style={{color}}>{message}</h1> 이걸 쓰면 +1,-1이 된다*/}
+
+                    <div>
+                       <button onClick={()=>setNumber(number+1)}>+1</button> {/* usestate의 setter는 바로 접근가능하기 때문에 중괄호를 치면 안된다!(객체를 이용한 메소드가아니므로)setNumber안에는 number가 없다!*/}
+                    <button onClick={()=>setNumber(number-1)}>-1</button>
+                        {/*<button onClick={onClickPlus}>+1</button>*/}
+                        {/*<button onClick={onClickMinus}>-1</button> 이렇게 되면 +1,-1만됨*/}
+                        <button onClick={()=>setColor("blue")}>Blue</button> {/*콜백 함수*/}
+                        <button onClick={()=>setColor("green")}>Green</button> 
+                        <button onClick={()=>setColor("orange")}>Orange</button>
+                    </div>
+                </>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById("root")).render(<Counter/>);
+    </script>
+
+</body>
+</html>
+

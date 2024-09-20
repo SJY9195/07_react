@@ -13,19 +13,39 @@
 
     <script type="text/babel">
         const root = ReactDOM.createRoot(document.getElementById("root"));
-        const answer = parseInt(prompt("리액트가 재미있으신가요? \n 1. 재미있다. \n 2. 어렵다"));
+        const answer = parseInt(prompt("리액트가 재미있으신가요? \n 1.재미있다. \n 2. 어렵다"));
 
-        // 1. 렌더링 시 조건 비교 후 조건부 렌더링 (최대한 조건식이 심플 할 때 사용)
+        // 1. 렌더링 시 조건 비교 후 조건부 렌더링 (최대한 조건식이 심플할 때 사용)
         const positiveElement = <h1>앞으로 점점 더 재밌어질 거에요 </h1>;
         const negativeElement = <h1>천천히 앞의 내용을 복습 해보세요 </h1>;
 
-        root.render(
-            (answer === 1)? positiveElement:negativeElement
-        );
+        // root.render(
+        //     (answer === 1)? positiveElement:negativeElement
+        // );
 
         // 2. && 연산자를 이용하여 조건부 엘리먼트 생성 (조건이 맞을때만)
-        const element = (answer === 1) && <h1>앞으로 점점 더 재밌어질 거에요 </h1>;
+        // const element = (answer ===1) && <h1>앞으로 점점 더 재밌어질 거에요 </h1>;
+        // root.render(element);
+
+        // 3. jsx 내에서 조건부로 엘리먼트 생성하기
+
+        // 3-1. if 문으로 조건부 엘리먼트 생성하기
+        // let element;
+        // if(answer ===1){
+        //     element = <h1>앞으로 점점 더 재밌어질 거에요</h1>;
+        // }else{
+        //     element =<h1>천천히 앞의 내용을 복습 해보세요</h1>;
+        // }
+
+        // 3-2. 삼항 연산자로 조건부 엘리먼트 생성하기
+        const element = (answer ===1)? <h1>앞으로 점점 더 재밌어질 거에요</h1>
+                                        :<h1>천천히 앞의 내용을 복습 해보세요</h1>;
+
+        
         root.render(element);
+
+
+
     </script>
 </body>
 </html>
