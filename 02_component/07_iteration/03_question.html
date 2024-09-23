@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const {useState} = React;
+            
+
+    const UserList = () => {
+    const [users,setUsers] = useState([
+        {id:1,name:"홍길동",age:20},
+        {id:2,name:"유관순",age:16},
+        {id:3,name:"이순신",age:40}
+    ])
+
+     return (
+        <>
+            <h1>User List </h1>
+            <ul>
+                {users.map(user=>{
+                  return(  <li key={user.id}>
+                        Name : {user.name} <br/>
+                        Age : {user.age}
+                        </li>
+                    )
+                })}
+            </ul>
+        </>
+     )
+    }
+
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<UserList/>);
+
+    </script>
+</body>
+</html>
