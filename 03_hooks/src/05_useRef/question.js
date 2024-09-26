@@ -6,10 +6,15 @@ const Board = () => {
         title : '',
         context : '',
         search : '',
+        comment : ''
     });
     const [idCounter, setIdCounter] = useState(0);
 
+    const [commentidCounter, setCommentIdCounter] = useState(0);
+
     const [posts, setPosts] = useState([]); // 게시된 글들을 저장하는 상태
+
+    const [comments, setComments] = useState([]); //댓글 들을 저장하는 상태
 
     const onChangeHandler = e => {
         setText({
@@ -35,9 +40,23 @@ const Board = () => {
         setIdCounter(idCounter+1);
     };
 
+    const onCommentHandler = (postId) => {
+        setComments({
+            ...comments,
+            [postId]: [...(comments[postId] || []), text.comment]
+        });
+        setText({
+            ...text,
+            comment:''
+        });
+    };
+
     // 게시글 삭제 핸들러
     const onDeleteHandler = id => {
        setPosts(posts.filter(post => post.id !== id));
+       const newComments = {...comments};
+       delete newComments[id];
+       setComments(newComments);
     }
 
         return(
@@ -61,13 +80,17 @@ const Board = () => {
                         <p>{post.context}</p>
                         <button onClick={()=>onDeleteHandler(post.id)}>삭제</button>
                         <br/>
-                        <input type = "textarea" style={{padding : "10px"}} name="comment" placeholder="댓글 작성"/>
+                        <input type = "textarea" style={{padding : "10px"}} name="comment" value={text.comment} placeholder="댓글 작성" onChange={onChangeHandler}/>
                         <br/>
-                        <button>댓글 달기</button>  {/*onclickhandler 넣어서 map으로 댓글텍스트 뿌려주면된다*/}
+                        <button onClick={()=>onCommentHandler(post.id)}>댓글 달기</button>  {/*onclickhandler 넣어서 map으로 댓글텍스트 뿌려주면된다*/}
+                        <ul>
+                                {(comments[post.id] || []).map((comment, index) => (<li key={index}>{comment}</li>))}    
+                        </ul>    
+                 
                     </li>)
                     })
                 }
-
+                
             </div>
             </>
         );
