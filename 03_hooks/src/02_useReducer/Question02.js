@@ -32,7 +32,6 @@ const Calculator = () => {
         <h2>제곱값:</h2>
         <br/>
         {squareNumber}
-
         </>
     )
 

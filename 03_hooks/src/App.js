@@ -14,6 +14,17 @@ import LocationComponent from "./03_useMemo/04_object-type-problem";
 import Calculator from "./02_useReducer/Question02";
 import SquareCalculator from "./03_useMemo/05_question1";
 import ItemList from "./03_useMemo/06_question2";
+import CallBackProblem from "./04_useCallback/01_problem";
+import FunctionMemoization from "./04_useCallback/02_function-memoization";
+import CallbackComponent from "./04_useCallback/03_components";
+import CounterRef from "./05_useRef/01_problem";
+import UseRefCounter from "./05_useRef/02_useRef";
+import LoginComponent from "./05_useRef/03_inputRef";
+import Board from "./05_useRef/question";
+import Page from "./06_useContext/01_props-dribbling";
+import ContextContainer from "./06_useContext/02_useContext";
+import HooksProblem from "./07_custom-hooks/01_problem";
+import CustomHooks from "./07_custom-hooks/02_custom-hooks";
 
 
 
@@ -41,7 +52,18 @@ function App() {
     {/*<LocationComponent/>*/}
     {/*<Calculator/>*/}
     {/*<SquareCalculator/>*/}
-    {<ItemList/>}
+    {/*<ItemList/>*/}
+    {/*<CallBackProblem/>*/}
+    {/*<FunctionMemoization/>*/}
+    {/*<CallbackComponent/>*/}
+    {/*<CounterRef/>*/}
+    {/*<UseRefCounter/>*/}
+    {/*<LoginComponent/>*/}
+       <Board/>
+    {/*<Page/>*/}
+    {/*<ContextContainer/>*/}
+    {/* {<HooksProblem/>} */}
+    {/* <CustomHooks/> */}
    </>
   );
 }

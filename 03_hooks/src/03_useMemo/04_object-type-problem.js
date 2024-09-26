@@ -38,6 +38,7 @@ const LocationComponent = () => {
     },[location]);
 
     return(
+        
         <>
             <h2>지금 당신의 위치는?</h2>
             <p>국가 : {location.country}</p>
@@ -47,7 +48,7 @@ const LocationComponent = () => {
             <input type = "number" value = {number}
             onChange={e=>setNumber(e.target.value)}/>
         </>
-
+        
     )
 }
 

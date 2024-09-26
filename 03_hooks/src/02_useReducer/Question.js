@@ -11,7 +11,7 @@ const reducer = (state, action) => {
             return {value:state.value+1}
         case 'textname' :
             return ({
-                ...state,
+                ...state,       
                 [action.name] : action.value
             });
         default: 
@@ -29,7 +29,6 @@ const UseReducerCounter = () => {
 
 
     const onChangeHandler = e => dispatch({
-        
         type : "textname",
         name : e.target.name,
         value : e.target.value
@@ -50,7 +49,6 @@ const UseReducerCounter = () => {
     </>
 
     )
-
 }
 
 export default UseReducerCounter;

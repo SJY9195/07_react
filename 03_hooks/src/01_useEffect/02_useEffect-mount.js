@@ -4,7 +4,7 @@ import {useState, useEffect} from "react";
 
  const UseEffectMount = () => {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
-
+   
 
    useEffect(()=>{
       console.log("마운트 시점 동작");

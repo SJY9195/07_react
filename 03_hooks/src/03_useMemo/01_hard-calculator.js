@@ -17,7 +17,7 @@ const HardCalculator = () => {
             <h3>어려운 계산기</h3>
             <input type="number"
             value={hardNumber}
-            onChange = {e => setHardNumber(parseInt(e.target.value))}/>
+            onChange = {e => setHardNumber(parseInt(e.target.value))}/> {/*parseInt 해주는 이유: value가 문자열로 반환되기때문에*/}
         <span> +999999999 = {hardSum} </span>
         </>
     )
