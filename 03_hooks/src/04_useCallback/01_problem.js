@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-const CallBackProblem = () => {
+const CallBackProblem = () => { //함수도 객체기 때문에 useState값이 바뀌고 주소 값이 바뀌고, 다시 랜더링 되면 함수가 다시 호출된다. 그래서 toggle을 눌러도 useEffect가 다시 발동된다!
 
     const [number,setNumber] = useState(0);
     const [toggle,setToggle] = useState(false);

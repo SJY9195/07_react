@@ -82,7 +82,7 @@ const Board = () => {
                         <br/>
                         <input type = "textarea" style={{padding : "10px"}} name="comment" value={text.comment} placeholder="댓글 작성" onChange={onChangeHandler}/>
                         <br/>
-                        <button onClick={()=>onCommentHandler(post.id)}>댓글 달기</button>  {/*onclickhandler 넣어서 map으로 댓글텍스트 뿌려주면된다*/}
+                        <button onClick={()=>onCommentHandler(post.id)}>댓글 달기</button>  {/*onclickhandler 넣어서 map으로 댓글텍스트 뿌려주면된다 */}
                         <ul>
                                 {(comments[post.id] || []).map((comment, index) => (<li key={index}>{comment}</li>))}    
                         </ul>    

@@ -1,8 +1,5 @@
 import {useEffect, useState, useReducer, useMemo} from "react";
 
-const ItemList = () => {
-
-        const [quantity, setQuantity] = useState(0);
         const products = [
             { name: "아이폰 16", category: "전자제품" },
             { name: "맥북 프로", category: "전자제품" },
@@ -14,42 +11,37 @@ const ItemList = () => {
             { name: "전자레인지", category: "가전제품" },
           ];
 
-    const onClickHandler = () => {
-        const changeItems = [products.category.concat(
-           "전자제품"
-        )];
-    };
+const ProductFilter = () => {
+    const [category, setCategory] = useState("");
 
-    const showList = useMemo(()=>{
+    const filterProduct = useMemo(()=>{
+        if(category === ""){
+            return products;
+        }
+        return products.filter(product => product.category === category);
+    }, [category]);
 
-        return products.map(list => {
-            return category("전자제품");
-         })
-    },[products])
-
-
-    return (        
+    return (
         <>
-        <h2>상품 목록</h2>
-        <br/>
-        <button>모든 카테고리</button>
-        <button onClick={onClickHandler}>전자제품</button>
-        <button>의류</button>
-        <button>가전제품</button>
+            <h1>상품 목록</h1>
 
-        <div>   
+            <div>
+                <button onClick={()=>setCategory("")}>모든 카테고리</button>
+                <button onClick={()=>setCategory("전자제품")}>전자제품</button>
+                <button onClick={()=>setCategory("의류")}>의류</button>
+                <button onClick={()=>setCategory("가전제품")}>가전제품</button>    
+            </div>        
+        
+            <h2>총 {filterProduct.length}개의 상품</h2>
+            <ul>
+                {filterProduct.map((product, index)=>{
 
-        <h2> 총 N개의 상품</h2>
-        {showList.map((list, index) => {
-            return(<li key={index}>{list}</li>)
+                    return <li key={index}>{product.name}</li>
 
-        })}
-
-        </div>
-
-
+                })}
+                
+                </ul>   
         </>
-    );
-};
-
-export default ItemList;
+    )
+}
+export default ProductFilter;

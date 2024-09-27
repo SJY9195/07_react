@@ -45,7 +45,7 @@ const UseRefCounter = () => {
             <button onClick={increaseCountRef}>카운트 Ref 증가</button>
         </>
     )
-
+ //버튼을 누르면 값은 증가하나, counter 빼고는 랜더링이 안될뿐인것이다!
 }
 
 export default UseRefCounter;

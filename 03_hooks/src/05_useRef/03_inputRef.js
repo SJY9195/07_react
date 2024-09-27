@@ -11,7 +11,7 @@ const LoginComponent = () => {
     useEffect(()=>{
         console.log(userNameRef.current);
         userNameRef.current.focus();   
-    }, [])
+    }, [])    //빈배열이면 컴포넌트가 처음 마운트될 때 한 번 실행된다!
 
     const userNameRef = useRef();
     

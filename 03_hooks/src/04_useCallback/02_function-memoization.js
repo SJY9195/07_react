@@ -39,7 +39,6 @@ const FunctionMemoization = () => {
             <input type="number" value={number} onChange={e=>setNumber(parseInt(e.target.value))}/>
             <br/>
             <button onClick={()=>setToggle(r=>!r)}>{String(toggle)}</button>
-
             <br/>
             <button onClick={printNumber}>printNumberState</button>
             <button onClick={noneCallback}>noneCallback</button>
