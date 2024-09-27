@@ -16,7 +16,7 @@ const Test = () => {
 
 
     const onClickHandler = () => {
-        const changeNames = names.concat({
+        const changeNames = names.concat({ //concat은 배열을 합친다.
             id:nextId,
             name:inputText,
             isChecked: false 
@@ -40,7 +40,7 @@ const Test = () => {
         setNames(updatedNames);   // ...은 객체안의 요소를 수정하기위해 기존 객체를 복사하여(리액트에서는 기존객체를 수정하면 리액트가 감지 못할 수 있다.) 새로운 객체로 만들어주는것! 기존 객체는 가비지컬렉터가 버려간다!
     }
 
-
+    
     const nameList = names.map(name =>{
         return (<li key={name.id} style={{listStyle: "none"}}>
             <input
