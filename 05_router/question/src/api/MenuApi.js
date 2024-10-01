@@ -5,5 +5,5 @@ export function getMenuList (){
 }
 
 export function getMenuDetail(id){
-    return menus.filter(menu => menu.id === parseInt(id))[1];
+    return menus.filter(menu => menu.id === parseInt(id))[0];
 }
