@@ -51,7 +51,6 @@ const Item = ({user}) => {
                     phone : {user.phone}<br/>
                 </p>
             </div>
-
       )
 }
 
