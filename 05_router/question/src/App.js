@@ -35,4 +35,4 @@ function App() {   //오더스테이트 로직을 메뉴디테일에 장바구�
   );
 };
 
-export default App;
+export default App; 
